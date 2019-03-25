@@ -18,7 +18,7 @@ end
 
 
 def get_character_movies_from_api(character_name)
-  #gets character film info
+  #gets character film info as an array of URLs
   get_film_list_hash(character_name).map do |url|
     JSON.parse(RestClient.get(url))
   end
@@ -27,6 +27,7 @@ end
 
 def print_movies(films)
   # some iteration magic and puts out the movies in a nice list
+  #prints movie titles
   films.each do |film|
     puts film['title']
   end
